@@ -1,0 +1,8 @@
+NAME="Citadel-OS"
+PRETTY_NAME="Citadel OS"
+ID=arch
+BUILD_ID=dev
+ANSI_COLOR="38;2;175;0;135"
+HOME_URL="https://github.com/CitadelOS"
+DOCUMENTATION_URL="https://github.com/CitadelOS"
+LOGO=citadel-logo

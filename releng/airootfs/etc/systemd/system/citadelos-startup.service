@@ -1,0 +1,15 @@
+[Unit]
+Description=Start GDM
+After=graphical.target
+
+[Service]
+ExecStart=/usr/bin/gdm
+Restart=always
+User=root
+
+[daemon]
+AutomaticLoginEnable=True
+AutomaticLogin=root
+
+[Install]
+WantedBy=multi-user.target

@@ -32,6 +32,7 @@ f2fs-tools
 fatresize
 foot-terminfo
 fsarchiver
+git
 gpart
 gpm
 gptfdisk
@@ -119,10 +120,15 @@ usbutils
 vim
 virtualbox-guest-utils-nox
 vpnc
+gdm
+gnome
+firefox
+plymouth
 wireless-regdb
 wireless_tools
 wpa_supplicant
 wvdial
+wget
 xfsprogs
 xl2tpd
 zsh

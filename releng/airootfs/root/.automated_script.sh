@@ -17,7 +17,7 @@ automated_script() {
     script="$(script_cmdline)"
     if [[ -n "${script}" && ! -x /tmp/startup_script ]]; then
         if [[ "${script}" =~ ^((http|https|ftp|tftp)://) ]]; then
-            # there's no synchronization for network availability before executing this script
+            # Synchronisation avec la connexion réseau avant d'exécuter le script
             printf '%s: waiting for network-online.target\n' "$0"
             until systemctl --quiet is-active network-online.target; do
                 sleep 1
@@ -32,13 +32,16 @@ automated_script() {
         if [[ ${rt} -eq 0 ]]; then
             chmod +x /tmp/startup_script
             printf '%s: executing automated script\n' "$0"
-            # note that script is executed when other services (like pacman-init) may be still in progress, please
-            # synchronize to "systemctl is-system-running --wait" when your script depends on other services
             /tmp/startup_script
         fi
     fi
 }
 
-if [[ $(tty) == "/dev/tty1" ]]; then
+main() {
     automated_script
+    start_sddm
+}
+
+if [[ $(tty) == "/dev/tty1" ]]; then
+    main
 fi
